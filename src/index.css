@@ -1,0 +1,41 @@
+html {
+  scroll-behavior: smooth;
+}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-japan-black: #050505;
+  --color-japan-white: #F5F5F5;
+  --color-japan-red: #E11D48;
+}
+
+@layer base {
+  body {
+    @apply bg-japan-black text-japan-white font-sans antialiased selection:bg-japan-red selection:text-white;
+  }
+}
+
+@layer utilities {
+  @keyframes subtle-zoom {
+    from { transform: scale(1.05); }
+    to { transform: scale(1.15); }
+  }
+  .animate-subtle-zoom {
+    animation: subtle-zoom 20s ease-in-out infinite alternate;
+  }
+  
+  .glass {
+    @apply backdrop-blur-md bg-japan-black/40 border border-white/10;
+  }
+  
+  .text-label {
+    @apply text-[10px] tracking-[0.4em] uppercase text-white/50 font-medium;
+  }
+}
+
+
